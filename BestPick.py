@@ -30,16 +30,36 @@ def get_matchup(hero):
 
     rows = hero_grid[0].find_all('tr')
 
+    matchup_dict = {}
+
     for matchup in rows:
 
         matchup_row = matchup.find_all('a')
 
         matchup_name = matchup_row[0]['href'].split("/")[-1]
 
-        print(str(matchup_name) + " " + matchup.find_all('td')[2].text)
+        matchup_dict[matchup_name] = matchup.find_all('td')[2].text
+
+    return matchup_dict
 
 
 heroes = get_heroes()
 
+match = {}
 
-get_matchup(heroes[0])
+for i in heroes:
+    match[i] = 0
+
+for i in range(5):
+    curr_hero = input("Enter hero" + str(i + 1) + ": ")
+    matchup = get_matchup(curr_hero)
+    for i in heroes: 
+        if i != curr_hero:
+            match[i] += float(matchup[i].split("%")[0])
+
+sorted = {k: v for k, v in sorted(match.items(), key=lambda item: item[1])}
+print(sorted)
+
+sorted_list = sorted.keys()
+print(sorted.keys())
+
