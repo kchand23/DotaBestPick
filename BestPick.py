@@ -45,38 +45,38 @@ def get_matchup(hero):
 
 heroes = get_heroes()
 
-match = {}
+# match = {}
 
-for i in heroes:
-    match[i] = 0
-
-
-#get 5 heroes from user based on current match
-for i in range(5):
-    curr_hero = input("Enter hero" + str(i + 1) + ": ")
-    matchup = get_matchup(curr_hero)
-    for i in heroes: 
-        if i != curr_hero:
-            match[i] += float(matchup[i].split("%")[0])
-
-#Sort the dictionary based on values
-sorted = {k: v for k, v in sorted(match.items(), key=lambda item: item[1])}
+# for i in heroes:
+#     match[i] = 0
 
 
-print("Top 10 picks:  ")
+# #get 5 heroes from user based on current match
+# for i in range(5):
+#     curr_hero = input("Enter hero" + str(i + 1) + ": ")
+#     matchup = get_matchup(curr_hero)
+#     for i in heroes: 
+#         if i != curr_hero:
+#             match[i] += float(matchup[i].split("%")[0])
 
-top10 = sorted_list[:9]
-for i in top10:
-    print(i + ": " + str(sorted[i]))
+# #Sort the dictionary based on values
+# sorted = {k: v for k, v in sorted(match.items(), key=lambda item: item[1])}
 
-#Get heroe names in order of advantage. 
-sorted_list = list(sorted.keys())
-print("The top 10 picks are: ")
+# #Get heroe names in order of advantage. 
+# sorted_list = list(sorted.keys())
+# print("The top 10 picks are: ")
 
-#get last 10 and reverse to get the last 10 best heroes
-last10 = sorted_list[-9:]
-last10 = [ele for ele in reversed(last10)] 
+# #get top 10 and reverse to get the top 10 best heroes
+# top_10 = sorted_list[-9:]
+# top_10 = [ele for ele in reversed(top_10)] 
 
 
-for i in last10:
-    print(i + ": " + str(sorted[i]))
+# for i in top_10:
+#     print(i + ": " + str(sorted[i]))
+
+
+# print("Dont pick any of these heroes: ")
+
+# last_10 = sorted_list[:9]
+# for i in last_10:
+#     print(i + ": " + str(sorted[i]))
